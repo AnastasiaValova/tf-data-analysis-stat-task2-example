@@ -5,13 +5,12 @@ import math
 chat_id = 225497605 # Ваш chat ID, не меняйте название переменной 
 
 def solution(p: float, x: np.array) -> tuple:
+    t = 98
     alpha = 1 - p
-    loc = x.mean()
+    min = x.min()
     
-    z_1 = -math.log(1-alpha)
-    z_2 = -math.log(1-p)
+    z_1 = -math.log(1-alpha)/len(x)
+    z_2 = -math.log(1-p)/len(x)
     
-    print(z_1)
-    print(z_2)
-    return (z_1+loc-1/2)*2/(98*98), \
-           (z_2+loc-1/2)*2/(98*98)
+    return (z_1+min-1/2)*2/(t*t), \
+           (z_2+min-1/2)*2/(t*t)
